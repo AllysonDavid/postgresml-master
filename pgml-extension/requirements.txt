@@ -1,0 +1,53 @@
+# Use a Python 3.11 virtualenv with PostgresML:
+# $ virtualenv -p python3.11 pgml-venv
+# $ source pgml-vev/bin/activate
+# $ pip install -r requirements.txt
+
+# Python 3.12 can't resolve all dependencies:
+# catboost and autogptq fail to build
+
+# Only the immediate dependencies of PostgresML are maintained here.
+# See requirements.linux.txt or requirements.macos.txt for complete and locked versions.
+# If you update this file, make sure to pip freeze into platform specific dependencies
+# to avoid bitrot.
+
+# ML
+catboost
+lightgbm
+torch
+torchaudio
+torchvision
+xgboost
+
+# Transformers
+accelerate
+auto-gptq; sys_platform == 'linux' # only runs on nvidia hardware
+bitsandbytes
+ctransformers
+huggingface-hub
+deepspeed
+einops
+optimum
+peft
+tokenizers
+transformers
+transformers-stream-generator
+xformers; sys_platform == 'linux' # only runs on nvidia hardware
+vllm; sys_platform == 'linux' # only runs on linux
+
+# Embeddings
+sentence-transformers
+
+# Ratings
+rouge
+sacrebleu
+sacremoses
+evaluate
+trl
+
+# Utils
+datasets
+orjson
+langchain
+evaluate
+trl
